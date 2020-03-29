@@ -1,4 +1,5 @@
 const generateUniqueId = require ('../utils/generateUniqueld');
+const crypto = require('crypto');
 const connection = require('../database/connection');
 
 module.exports = {

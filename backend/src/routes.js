@@ -18,15 +18,15 @@ routes.post('/ongs',celebrate({
         email: Joi.string().required().email(),
         whatsapp: Joi.string().required().min(10).max(11),
         city: Joi.string().required(),
-        uf: Joi.string().required().length(2),
+        uf: Joi.string().required().min(2).length(2),
 
     })
 }), OngController.create);
 
-routes.get('/profile',celebrate({
-    [Segments.HEADERS]: Joi.object().keys({
+routes.get('/profile', celebrate({
+    [Segments.HEADERS]: Joi.object({
         authorization: Joi.string().required(),
-    }),     
+    }).unknown(),
 }), ProfileController.index);
 
 routes.get('/incidents', celebrate({
